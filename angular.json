@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "test-libreria-boton": {
+      "root": "projects/test-libreria-boton",
+      "sourceRoot": "projects/test-libreria-boton/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/test-libreria-boton/tsconfig.lib.json",
+            "project": "projects/test-libreria-boton/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/test-libreria-boton/src/test.ts",
+            "tsConfig": "projects/test-libreria-boton/tsconfig.spec.json",
+            "karmaConfig": "projects/test-libreria-boton/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/test-libreria-boton/tsconfig.lib.json",
+              "projects/test-libreria-boton/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "test-libreria-boton"
+}
